@@ -3,7 +3,8 @@ description: 'Migration configuration for moving to Islandora CLAW from 7.x'
 type: module
 core: 8.x
 dependencies:
-  - migrate_plus
   - migrate_7x_claw
+  - migrate_plus
 version: 8.x-1.x
 package: Islandora
+core_incompatible: false
