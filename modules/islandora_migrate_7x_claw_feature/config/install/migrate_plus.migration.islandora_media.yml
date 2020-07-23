@@ -15,9 +15,9 @@ migration_group: islandora_7x
 label: 'Islandora Media'
 source:
   plugin: islandora
-  solr_base_url: 'http://10.0.2.2:8080/solr'
-  q: 'RELS_EXT_isMemberOfCollection_uri_ms:"info:fedora/islandora:sp_basic_image_collection" OR PID:"islandora:sp_basic_image_collection"' 
-  fedora_base_url: 'http://10.0.2.2:8080/fedora'
+  solr_base_url: 'http://localhost:9999/solr'
+  q: 'RELS_EXT_isMemberOfCollection_uri_ms:"info:fedora/archden:yearbooks" OR PID:"archden:yearbooks"'
+  fedora_base_url: 'http://localhost:9999/fedora'
   islandora_type: datastreams
   datastream_solr_field: fedora_datastreams_ms
   data_fetcher_plugin: http
@@ -121,24 +121,24 @@ process:
       plugin: static_map
       source: DSID
       map:
-        OBJ: http://pcdm.org/use#OriginalFile
-        PDFA: http://pcdm.org/use#PreservationMasterFile
-        OCR: http://pcdm.org/use#ExtractedText
-        HOCR: http://pcdm.org/use#ExtractedText
-        FULL_TEXT: http://pcdm.org/use#ExtractedText
-        TN: http://pcdm.org/use#ThumbnailImage
-        JPG: http://pcdm.org/use#ServiceFile
-        MEDIUM_SIZE: http://pcdm.org/use#ServiceFile
-        PREVIEW: http://pcdm.org/use#ServiceFile
-        MP4: http://pcdm.org/use#ServiceFile
-        JP2: http://pcdm.org/use#IntermediateFile
-        MKV: http://pcdm.org/use#IntermediateFile
-        RELS-EXT: http://islandora.ca/ontology/relsext
-        DC: http://purl.org/dc/elements/1.1
-        MODS: http://www.loc.gov/mods/v3
-        TECHMD: http://hul.harvard.edu/ois/xml/ns/fits/fits_output
-        PROXY_MP3: http://pcdm.org/use#ServiceFile
-        COLLECTION_POLICY: http://islandora.ca/collection-policy
+        OBJ: 'http://pcdm.org/use#OriginalFile'
+        PDFA: 'http://pcdm.org/use#PreservationMasterFile'
+        OCR: 'http://pcdm.org/use#ExtractedText'
+        HOCR: 'http://pcdm.org/use#ExtractedText'
+        FULL_TEXT: 'http://pcdm.org/use#ExtractedText'
+        TN: 'http://pcdm.org/use#ThumbnailImage'
+        JPG: 'http://pcdm.org/use#ServiceFile'
+        MEDIUM_SIZE: 'http://pcdm.org/use#ServiceFile'
+        PREVIEW: 'http://pcdm.org/use#ServiceFile'
+        MP4: 'http://pcdm.org/use#ServiceFile'
+        JP2: 'http://pcdm.org/use#IntermediateFile'
+        MKV: 'http://pcdm.org/use#IntermediateFile'
+        RELS-EXT: 'http://islandora.ca/ontology/relsext'
+        DC: 'http://purl.org/dc/elements/1.1'
+        MODS: 'http://www.loc.gov/mods/v3'
+        TECHMD: 'http://hul.harvard.edu/ois/xml/ns/fits/fits_output'
+        PROXY_MP3: 'http://pcdm.org/use#ServiceFile'
+        COLLECTION_POLICY: 'http://islandora.ca/collection-policy'
       default_value: Datastream
     -
       plugin: entity_lookup
@@ -155,9 +155,9 @@ process:
       image/jpg: image
       image/png: image
       image/gif: image
-      audio/mpeg: audio 
-      audio/wav: audio 
-      audio/aac: audio 
+      audio/mpeg: audio
+      audio/wav: audio
+      audio/aac: audio
       video/mp4: video
     default_value: file
 destination:
@@ -168,4 +168,4 @@ migration_dependencies:
     - migrate_plus.migration.islandora_objects
     - migrate_plus.migration.islandora_7x_tags
     - migrate_plus.migration.islandora_audit_media
-  optional: { }
+  optional: {  }
